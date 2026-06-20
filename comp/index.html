@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Comp Estimator — Vegas Companion</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <meta name="theme-color" content="#0b0e1a" />
+  <link rel="icon" href="../icons/icon-192.png" />
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="../index.html" aria-label="Back to hub">‹</a>
+    <h1><span class="brand">Comp Estimator</span></h1>
+  </div>
+  <main>
+    <noscript><p class="disclaimer">This app needs JavaScript to run.</p></noscript>
+    <div class="tool-wrap">
+      <div class="panel">
+        <h2>Your play</h2>
+        <div class="field">
+          <label for="game">Game</label>
+          <select id="game"></select>
+        </div>
+        <div class="field">
+          <label for="avgbet">Average bet per hand/spin ($)</label>
+          <input type="number" id="avgbet" min="0" step="1" inputmode="decimal" value="25" />
+        </div>
+        <div class="field">
+          <label for="hours">Hours played</label>
+          <input type="number" id="hours" min="0" step="0.5" inputmode="decimal" value="4" />
+        </div>
+        <fieldset>
+          <legend>Play style (sets the edge for your loss)</legend>
+          <div class="segmented" id="basis" role="group" aria-label="Play style">
+            <button type="button" data-basis="average" aria-pressed="true">Average</button>
+            <button type="button" data-basis="optimal" aria-pressed="false">Optimal</button>
+          </div>
+        </fieldset>
+        <div class="field inline">
+          <label for="edge">House edge (%) <span class="sub">editable</span></label>
+          <input type="number" id="edge" min="0" max="100" step="0.01" inputmode="decimal" />
+        </div>
+        <div class="field inline">
+          <label for="comprate">Comp reinvestment rate (%)</label>
+          <input type="number" id="comprate" min="0" max="100" step="1" inputmode="decimal" value="33" />
+        </div>
+        <p class="note" id="gamenote"></p>
+        <p class="note">Pace: <span id="dph"></span> decisions/hour (a typical casino comp-rating figure for this game).</p>
+      </div>
+
+      <div class="panel">
+        <h2>Estimate</h2>
+        <div class="result">
+          <div class="figure">
+            <span class="label">Your theoretical loss</span>
+            <span class="value loss" id="theoloss">$0.00</span>
+          </div>
+          <div class="figure">
+            <span class="label">Estimated comp value</span>
+            <span class="value accent" id="compvalue">$0.00</span>
+          </div>
+        </div>
+        <p class="explainer" id="explainer"></p>
+      </div>
+
+      <div class="panel">
+        <p class="note">A rough estimate only. Real comp formulas, pace, and house edges vary by property, table, and host. Use it as a ballpark to know what to ask your players-club host for — not a guarantee.</p>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="../js/ui/comp.js"></script>
+</body>
+</html>

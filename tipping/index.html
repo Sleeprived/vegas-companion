@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tipping — Vegas Companion</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <meta name="theme-color" content="#0b0e1a" />
+  <link rel="icon" href="../icons/icon-192.png" />
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="../index.html" aria-label="Back to hub">‹</a>
+    <h1><span class="brand">Tipping</span></h1>
+  </div>
+  <main>
+    <noscript><p class="disclaimer">This app needs JavaScript to run.</p></noscript>
+    <div class="tool-wrap">
+      <div class="panel">
+        <h2>Quick tip</h2>
+        <div class="field">
+          <label for="scenario">Situation</label>
+          <select id="scenario"></select>
+        </div>
+        <div id="flat-inputs">
+          <div class="field inline">
+            <label for="flat-perunit">Tip per <span id="flat-unit">unit</span> ($)</label>
+            <input type="number" id="flat-perunit" min="0" step="1" inputmode="decimal" />
+          </div>
+          <div class="field inline">
+            <label for="flat-count">How many?</label>
+            <input type="number" id="flat-count" min="0" step="1" inputmode="numeric" value="1" />
+          </div>
+        </div>
+        <div id="pct-inputs" class="hidden">
+          <div class="field inline">
+            <label for="pct-bill">Bill ($)</label>
+            <input type="number" id="pct-bill" min="0" step="1" inputmode="decimal" value="100" />
+          </div>
+          <div class="field inline">
+            <label for="pct-rate">Tip (%)</label>
+            <input type="number" id="pct-rate" min="0" max="100" step="1" inputmode="decimal" />
+          </div>
+        </div>
+        <div class="result">
+          <div class="figure">
+            <span class="label">Suggested tip</span>
+            <span class="value accent" id="scenario-tip">$0.00</span>
+          </div>
+        </div>
+        <p class="note" id="scenario-note"></p>
+      </div>
+
+      <div class="panel">
+        <h2>Split a bill</h2>
+        <div class="field inline">
+          <label for="split-bill">Bill ($)</label>
+          <input type="number" id="split-bill" min="0" step="1" inputmode="decimal" value="120" />
+        </div>
+        <div class="field inline">
+          <label for="split-pct">Tip (%)</label>
+          <input type="number" id="split-pct" min="0" max="100" step="1" inputmode="decimal" value="20" />
+        </div>
+        <div class="field inline">
+          <label for="split-people">Split between</label>
+          <input type="number" id="split-people" min="1" step="1" inputmode="numeric" value="2" />
+        </div>
+        <div class="result">
+          <div class="figure"><span class="label">Tip</span><span class="value" id="split-tip">$0.00</span></div>
+          <div class="figure"><span class="label">Total</span><span class="value" id="split-total">$0.00</span></div>
+          <div class="figure"><span class="label">Each person pays</span><span class="value accent" id="split-pp">$0.00</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Reference</h2>
+        <table class="ref" id="ref"></table>
+        <p class="note">Customary norms, not rules — adjust for service. Bottle service, spa, and big-party restaurant bills often add gratuity automatically, so check before tipping again.</p>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="../js/ui/tipping.js"></script>
+</body>
+</html>

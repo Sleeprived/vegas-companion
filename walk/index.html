@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Strip Walk Times — Vegas Companion</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <meta name="theme-color" content="#0b0e1a" />
+  <link rel="icon" href="../icons/icon-192.png" />
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="../index.html" aria-label="Back to hub">‹</a>
+    <h1><span class="brand">Strip Walk Times</span></h1>
+  </div>
+  <main>
+    <noscript><p class="disclaimer">This app needs JavaScript to run.</p></noscript>
+    <div class="tool-wrap">
+      <div class="panel">
+        <div class="field">
+          <label for="origin">From</label>
+          <select id="origin"></select>
+        </div>
+        <div class="row between">
+          <button class="btn ghost" id="swap" aria-label="Swap from and to">⇅ Swap</button>
+        </div>
+        <div class="field">
+          <label for="dest">To</label>
+          <select id="dest"></select>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="result">
+          <div class="figure">
+            <span class="label">Approx. walk</span>
+            <span class="value accent" id="minutes">—</span>
+          </div>
+          <div class="figure">
+            <span class="label">Distance</span>
+            <span class="value" id="miles">—</span>
+          </div>
+        </div>
+        <p class="verdict" id="verdict"></p>
+        <p class="note" id="verdict-text"></p>
+        <div class="banner neutral hidden" id="tram"></div>
+      </div>
+
+      <div class="panel">
+        <p class="note" id="monorail"></p>
+        <p class="note"><strong>Approximate.</strong> Straight-line Strip estimates at a slow tourist pace — they don't account for live routing, construction, closures, weather, or which side of the street you're on. Use them as a "walk, tram, or rideshare?" gut-check only.</p>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="../js/ui/walk.js"></script>
+</body>
+</html>

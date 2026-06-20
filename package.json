@@ -1,0 +1,10 @@
+{
+  "name": "vegas-companion",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline installable PWA: a personal Las Vegas trip companion (bankroll tracker, tipping calculator, Strip walk-time helper, comp estimator). Node is dev-only for tests; the shipped site has no runtime dependencies.",
+  "scripts": {
+    "test": "node --test"
+  }
+}

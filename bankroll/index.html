@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Bankroll — Vegas Companion</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <meta name="theme-color" content="#0b0e1a" />
+  <link rel="icon" href="../icons/icon-192.png" />
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="../index.html" aria-label="Back to hub">‹</a>
+    <h1><span class="brand">Bankroll</span></h1>
+  </div>
+  <main>
+    <noscript><p class="disclaimer">This app needs JavaScript to run.</p></noscript>
+    <div class="tool-wrap">
+
+      <div class="panel">
+        <h2>Your trip</h2>
+        <div class="result">
+          <div class="figure"><span class="label">Bankroll remaining</span><span class="value" id="sum-remaining">$0.00</span></div>
+          <div class="figure"><span class="label">Net so far</span><span class="value" id="sum-net">$0.00</span></div>
+          <div class="figure"><span class="label">Today</span><span class="value" id="sum-today">$0.00</span></div>
+        </div>
+        <div class="banner loss hidden" id="daily-warning"></div>
+        <p class="scorebar"><span id="sum-record" class="muted"></span></p>
+      </div>
+
+      <!-- Live session OR start/quick-log forms -->
+      <div class="panel" id="session-panel">
+        <div id="live-session" class="hidden">
+          <h2>Live session</h2>
+          <p class="note"><span id="live-game"></span> · started <span id="live-when"></span> · buy-in <span id="live-buyin"></span></p>
+          <div class="field inline">
+            <label for="live-stack">Current chips/cash on hand ($)</label>
+            <input type="number" id="live-stack" min="0" step="1" inputmode="decimal" />
+          </div>
+          <div class="result">
+            <div class="figure"><span class="label">Session net</span><span class="value" id="live-net">$0.00</span></div>
+          </div>
+          <div class="banner neutral" id="live-alert">Set a stop-loss and win goal below to get a walk-away alert.</div>
+          <div class="field inline" style="margin-top:0.7rem">
+            <label for="live-cashout">Cash out at ($)</label>
+            <input type="number" id="live-cashout" min="0" step="1" inputmode="decimal" />
+          </div>
+          <button class="btn accent block" id="close-session">Close session</button>
+        </div>
+
+        <div id="no-session">
+          <h2>Start a session</h2>
+          <div class="field">
+            <label for="start-game">Game</label>
+            <input type="text" id="start-game" list="games" placeholder="Blackjack" maxlength="60" />
+          </div>
+          <div class="field">
+            <label for="start-loc">Where <span class="sub">(optional)</span></label>
+            <input type="text" id="start-loc" placeholder="Bellagio" maxlength="60" />
+          </div>
+          <div class="field inline">
+            <label for="start-buyin">Buy-in ($)</label>
+            <input type="number" id="start-buyin" min="0" step="1" inputmode="decimal" value="100" />
+          </div>
+          <button class="btn accent block" id="start-session">Start live session</button>
+
+          <h3>…or quick-log a finished one</h3>
+          <div class="row">
+            <div class="field inline" style="flex:1"><label for="ql-buyin">Buy-in ($)</label><input type="number" id="ql-buyin" min="0" step="1" inputmode="decimal" value="100" /></div>
+            <div class="field inline" style="flex:1"><label for="ql-cashout">Cash-out ($)</label><input type="number" id="ql-cashout" min="0" step="1" inputmode="decimal" value="0" /></div>
+          </div>
+          <button class="btn block" id="quick-log">Log finished session</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Limits</h2>
+        <p class="note">Used for the bankroll math and the live walk-away alert. Leave blank or 0 for "no limit".</p>
+        <div class="field inline"><label for="set-budget">Trip budget ($)</label><input type="number" id="set-budget" min="0" step="1" inputmode="decimal" /></div>
+        <div class="field inline"><label for="set-daily">Daily loss limit ($)</label><input type="number" id="set-daily" min="0" step="1" inputmode="decimal" /></div>
+        <div class="field inline"><label for="set-stop">Per-session stop-loss ($)</label><input type="number" id="set-stop" min="0" step="1" inputmode="decimal" /></div>
+        <div class="field inline"><label for="set-win">Per-session win goal ($)</label><input type="number" id="set-win" min="0" step="1" inputmode="decimal" /></div>
+        <button class="btn accent block" id="save-settings">Save limits</button>
+        <p class="hint hidden" id="settings-saved">Saved.</p>
+      </div>
+
+      <div class="panel">
+        <h2>History</h2>
+        <ul class="sessions" id="history"></ul>
+        <p class="note hidden" id="history-empty">No sessions yet.</p>
+        <button class="btn danger block" id="clear-bankroll" style="margin-top:0.8rem">Clear bankroll data</button>
+      </div>
+
+    </div>
+  </main>
+  <datalist id="games">
+    <option value="Blackjack"></option>
+    <option value="Craps"></option>
+    <option value="Roulette"></option>
+    <option value="Baccarat"></option>
+    <option value="Poker"></option>
+    <option value="Video Poker"></option>
+    <option value="Slots"></option>
+    <option value="Sports bet"></option>
+  </datalist>
+  <script type="module" src="../js/ui/bankroll.js"></script>
+</body>
+</html>
