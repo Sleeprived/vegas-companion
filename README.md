@@ -1,5 +1,11 @@
 # Vegas Companion
 
+## ▶ Use it live — just open this link
+
+**https://sleeprived.github.io/vegas-companion/**
+
+Works on any phone, tablet, or computer. Nothing to install, no account, no server.
+
 A phone-friendly, **offline** web app for a Las Vegas trip. Four small tools in one:
 
 - **Bankroll Tracker** — set a trip budget, track gambling sessions live (with a
