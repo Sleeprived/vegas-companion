@@ -19,15 +19,18 @@ odds or beat the house.
 
 ## 1. Quick start
 
-**Use it (just open it):** serve the folder over a tiny local web server and open the
-address it gives you. The simplest one, if you have Python:
+**Just use it (no setup):** open **https://sleeprived.github.io/vegas-companion/** in any
+browser. On a phone, use **Add to Home Screen** to install it like an app; after the first
+load it works fully offline.
+
+**Run it locally instead (for development):** serve the folder over a tiny local web server
+and open the address it gives you. The simplest one, if you have Python:
 
 ```
 python -m http.server 8000
 ```
 
-Then open `http://localhost:8000/` in your browser. On a phone, use **Add to Home
-Screen** to install it like an app; after the first load it works fully offline.
+Then open `http://localhost:8000/` in your browser.
 
 (Opening `index.html` directly as a `file://` path shows a blank page — browsers refuse
 to load JavaScript modules and the offline service worker that way. Use the server.)
